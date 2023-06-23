@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      background-color: darkolivegreen;
+    }
+    h2 {
+      color: #f78501;
+    }
+    .now {
+      color: #f78501;
+      font-size: 5rem;
+      font-weight: bold;
+    }
+    .message {
+      color: #f78501;
+      font-size: 1.6rem;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="logo d-flex justify-content-center pt-5">
+        <img
+          src="https:\\kodluyoruz.org\wp-content\uploads\2022\05\kodluyoruz_yatay_slogan-300x35.png"
+          alt=""
+        />
+      </div>
+      <div class="d-flex justify-content-center mt-5">
+        <h2>Merhaba, <span class="usrname"></span>! Hoş geldin!</h2>
+      </div>
+
+      <div class="now d-flex justify-content-center mt-5"></div>
+      <div class="message d-flex justify-content-center mt-5">
+        <p>
+          tarihinde
+          <strong>Kodluyoruz Frontend Web Development Patikası</strong>'nın
+          Javascript bölümü 1. Ödevindesiniz.
+        </p>
+      </div>
+    </div>
+    <script>
+      let username = prompt("Adınız: ", "Lütfen adınızı yazınız");
+      if (username) {
+        document.querySelector(".usrname").innerHTML = "Misafir Kullanıcı";
+        username;
+      } else {
+        let usernameDOM = (document.querySelector(".usrname").innerHTML =
+          username);
+      }
+
+      function zaman() {
+        const tarih = new Date();
+
+        let saat = tarih.getHours();
+        let dakika = tarih.getMinutes();
+        let saniye = tarih.getSeconds();
+        let fullYear = tarih.getFullYear();
+        let month = tarih.getMonth() + 1;
+        let date = tarih.getDate();
+
+        let gun = [
+          "Pazartesi",
+          "Salı",
+          "Çarşamba",
+          "Perşembe",
+          "Cuma",
+          "Cumartesi",
+          "Pazar",
+        ];
+        let gunName = gun[tarih.getDay() - 1];
+
+        let clock = document.querySelector(".now");
+        clock.innerHTML = `${date} ${month} ${fullYear} ${gunName} ${saat}:${dakika}:${saniye}`;
+      }
+
+      setInterval(zaman, 1000);
+    </script>
+  </body>
+</html>
